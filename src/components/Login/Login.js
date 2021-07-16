@@ -26,6 +26,7 @@ const Login = () => {
     return () => {
       setFormSubmitted(false)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formSubmitted, changeIsAuthenticated])
 
   if (isAuthenticated) {
@@ -83,7 +84,7 @@ const Login = () => {
         </fieldset>
         <small className='d-block text-end text-secondary'>
           Forgot{' '}
-          <a href='#' className='link'>
+          <a href='/forgot-password' className='link'>
             password?
           </a>
         </small>

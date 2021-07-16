@@ -1,7 +1,7 @@
 import { useContext, createContext, useState } from 'react'
 
 const accessToken = 'accessToken'
-const sleep = (time) => new Promise((resolve) => setTimeout(resolve, time))
+// const sleep = (time) => new Promise((resolve) => setTimeout(resolve, time))
 // const getUser = (email, password) =>
 //   sleep(1000).then(() => {
 //     if (email === 'admin@admin' && password === 'admin') {
