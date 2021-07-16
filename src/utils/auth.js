@@ -2,23 +2,23 @@ import { useContext, createContext, useState } from 'react'
 
 const accessToken = 'accessToken'
 const sleep = (time) => new Promise((resolve) => setTimeout(resolve, time))
-const getUser = (email, password) =>
-  sleep(1000).then(() => {
-    if (email === 'admin@admin' && password === 'admin') {
-      return { accessToken: 'elmo' }
-    } else {
-      console.error('Wrong login data')
-      throw Error('Wrong login data')
-    }
-  })
 // const getUser = (email, password) =>
-//   fetch('https://authserver.com', {
-//     method: 'POST',
-//     body: JSON.stringify({
-//       email,
-//       password,
-//     }),
+//   sleep(1000).then(() => {
+//     if (email === 'admin@admin' && password === 'admin') {
+//       return { accessToken: 'elmo' }
+//     } else {
+//       console.error('Wrong login data')
+//       throw Error('Wrong login data')
+//     }
 //   })
+const getUser = (email, password) =>
+  fetch('https://authserver.com', {
+    method: 'POST',
+    body: JSON.stringify({
+      email,
+      password,
+    }),
+  })
 
 const AuthContext = createContext()
 
@@ -43,7 +43,7 @@ const useAuth = () => {
 
 const login = (changeIsAuthenticated, [email, password, ...rest]) =>
   getUser(email, password)
-    // .then((response) => response.json())
+    .then((response) => response.json())
     .then((json) => {
       if (json.accessToken) {
         changeIsAuthenticated(true)
