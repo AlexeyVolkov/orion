@@ -9,6 +9,7 @@ import Home from './components/Home/Home'
 import Login from './components/Login/Login'
 import { AuthProvider, useAuth } from './utils/auth'
 
+import './utils/helpers.css'
 import './App.css'
 
 const PrivateRoute = ({ children, ...props }) => {
@@ -24,18 +25,20 @@ const PrivateRoute = ({ children, ...props }) => {
 
 function App() {
   return (
-    <AuthProvider>
-      <Router>
-        <Switch>
-          <Route path='/login'>
-            <Login />
-          </Route>
-          <PrivateRoute path='/'>
-            <Home />
-          </PrivateRoute>
-        </Switch>
-      </Router>
-    </AuthProvider>
+    <main className='app'>
+      <AuthProvider>
+        <Router>
+          <Switch>
+            <Route path='/login'>
+              <Login />
+            </Route>
+            <PrivateRoute path='/'>
+              <Home />
+            </PrivateRoute>
+          </Switch>
+        </Router>
+      </AuthProvider>
+    </main>
   )
 }
 
