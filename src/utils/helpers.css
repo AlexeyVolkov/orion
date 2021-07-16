@@ -1,0 +1,32 @@
+/* Flex */
+.flex {
+  display: flex;
+}
+.flex_row {
+  flex-direction: row;
+}
+.flex_align-items-center {
+  align-items: center;
+}
+/* Text */
+.text-end {
+  text-align: right;
+  text-align: end;
+}
+.text-secondary {
+  color: #676767;
+  padding: 1em 0;
+}
+/* Display */
+.d-block {
+  display: block;
+}
+/* Links */
+.link {
+  color: #0065ff;
+  text-decoration: none;
+}
+.link:hover,
+.link:focus {
+  text-decoration: underline;
+}
